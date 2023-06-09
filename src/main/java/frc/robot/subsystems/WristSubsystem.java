@@ -69,7 +69,6 @@ public class WristSubsystem extends SubsystemBase {
         0.1,
         0.1,
         0.1, 
-        0.1,
         true
       ); 
 
