@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.simulation.DutyCycleEncoderSim;
 import edu.wpi.first.wpilibj.simulation.SingleJointedArmSim;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.wpilibj.simulation.SingleJointedArmSim; 
 
 public class WristSubsystem extends SubsystemBase {
   private final WPI_TalonFX m_motor;
@@ -31,7 +30,6 @@ public class WristSubsystem extends SubsystemBase {
   public WristSubsystem(ShuffleboardTab wristTab) {
     // configure the motor.
     m_motor = new WPI_TalonFX(3); 
-
     m_motor.setNeutralMode(Constants.kNeutralMode);
     m_motor.setInverted(true); 
     m_motor.enableVoltageCompensation(true);
@@ -59,24 +57,20 @@ public class WristSubsystem extends SubsystemBase {
       setupShuffleboardTab(wristTab);
     }
 
-    // if a simulation, set up the simulation resources
-    if (RobotBase.isSimulation()) {
-      // make the simulator
-      m_armSim = new SingleJointedArmSim(
-        Constants.kGearBox,
-        0.1,
-        0.1,
-        0.1,
-        0.1,
-        0.1, 
-        true
-      ); 
+    m_armSim = new SingleJointedArmSim(
+      Constants.kGearBox,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1, 
+      true
+    ); 
 
       // make the encoder simulator
       // this allows us to set the encoder during simulations...
       m_absEncoderSim = new DutyCycleEncoderSim(m_absEncoder);
     }
-  }
 
 
   /**
