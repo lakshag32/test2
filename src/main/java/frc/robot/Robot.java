@@ -19,6 +19,7 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
+  private WristSubsystem m_WristSubsystem = new WristSubsystem(); 
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -46,10 +47,6 @@ public class Robot extends TimedRobot {
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
   }
-
-  /** This function is called once each time the robot enters Disabled mode. */
-  @Override
-  public void disabledInit() {}
 
   @Override
   public void disabledPeriodic() {}
@@ -102,5 +99,17 @@ public class Robot extends TimedRobot {
   /** This function is called periodically whilst in simulation. */
   @Override
   public void simulationPeriodic() {
+  }
+
+  @Override
+  public void close() {
+    m_WristSubsystem.close();
+    super.close();
+  }
+
+  @Override
+  public void disabledInit() {
+    // This just makes sure that our simulation code knows that the motor's off.
+    m_WristSubsystem.stop();
   }
 }

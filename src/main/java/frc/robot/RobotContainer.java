@@ -6,6 +6,7 @@ package frc.robot;
 
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.controls.joystick;
 import frc.robot.subsystems.WristSubsystem;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
@@ -27,7 +28,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final WristSubsystem m_wrist; 
-  private final Joystick m_joy; 
+  private final joystick m_joy; 
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   // private final CommandXboxController m_driverController =
@@ -39,8 +40,10 @@ public class RobotContainer {
     // Configure the trigger bindings
     configureBindings();
     m_wrist = new WristSubsystem();
-    m_joy = new Joystick(0); 
 
+    m_joy = new joystick(m_wrist); 
+
+    m_joy.configureControls();
   }
 
   /**
