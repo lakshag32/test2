@@ -44,18 +44,16 @@ public class WristSubsystem extends SubsystemBase{
     private final PIDController m_controller; 
 
     //create encoder
-    private final Encoder m_encoder; 
+    private final Encoder m_encoder = new Encoder(1, 2); 
 
     //create encoder sim
-    private final EncoderSim m_encoderSim; 
+    private final EncoderSim m_encoderSim = new EncoderSim(m_encoder); 
 
     //constructor for wrist subsystem 
     public WristSubsystem() {
       m_motor = new WPI_TalonFX(0); 
       m_joy = new Joystick(0); 
       m_controller = new PIDController(1, 0, 0); 
-      m_encoder = new Encoder(0,1); 
-      m_encoderSim = new EncoderSim(m_encoder); 
       m_armSim = new SingleJointedArmSim(
         Constants.kGearBox, 
         Constants.kGearRatio,
