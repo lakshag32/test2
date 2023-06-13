@@ -20,6 +20,14 @@ import edu.wpi.first.math.util.Units;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+  public static final double kDefaultArmSetpointDegrees = 180.0; 
+
+  public static final double kDefaultArmKp = 1.0; 
+
+  public static final String kArmPositionKey = "ArmPosition";
+
+  public static final String kArmPKey = "ArmP"; 
+
   public static final int kDriverControllerPort = 0;
     
   public static final int kMotorID = 2;
