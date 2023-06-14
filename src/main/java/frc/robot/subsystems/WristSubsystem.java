@@ -33,9 +33,6 @@ public class WristSubsystem extends SubsystemBase{
 
     //create a motor
     private final WPI_TalonFX m_motor;
- 
-    //create a joystick
-    private final Joystick m_joy; 
 
     //create a arm sim
     private final SingleJointedArmSim m_armSim; 
@@ -52,7 +49,6 @@ public class WristSubsystem extends SubsystemBase{
     //constructor for wrist subsystem 
     public WristSubsystem() {
       m_motor = new WPI_TalonFX(0); 
-      m_joy = new Joystick(0); 
       m_controller = new PIDController(1, 0, 0); 
       m_armSim = new SingleJointedArmSim(
         Constants.kGearBox, 
@@ -98,14 +94,9 @@ public class WristSubsystem extends SubsystemBase{
       m_motor.set(power); 
     } 
 
-    public double returnJoyPos(double pos){
-      return pos; 
-    }
 
     @Override
     public void simulationPeriodic() {
-      SmartDashboard.putNumber("Joy Output:", m_joy.getRawAxis(0));
-
       m_armSim.setInput(m_motor.get() * RobotController.getBatteryVoltage());
 
       m_armSim.update(0.020);
