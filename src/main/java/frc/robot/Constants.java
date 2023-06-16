@@ -78,9 +78,9 @@ public final class Constants {
   //public static final double kIntakeAltShelfPos = 1.35;
 
   /** Wrist position angle minimum (radians) */
-  public static final double kMinPos = -0.16;
+  public static final double kMinPos = 0;
   /** Wrist position angle maximum (radians) */
-  public static final double kMaxPos = 1.97;
+  public static final double kMaxPos = 6.28;
 
   //SIM
   // to know how much the arm will move with a certain power, the sim needs to know the motor, gear ratio, MOI, and length

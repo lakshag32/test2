@@ -84,6 +84,7 @@ public class WristSubsystem extends SubsystemBase{
 
       m_armTower.setColor(new Color8Bit(Color.kBlue));
 
+      //goToDefaultSetpoint();
     }
   
     public double getEncoderDist(){
@@ -129,10 +130,17 @@ public class WristSubsystem extends SubsystemBase{
   }
 
   /** Run the control loop to reach and maintain the setpoint from the preferences. */
-  public void reachSetpoint() {
+  public void goToDefaultSetpoint() {
     var pidOutput =
         m_controller.calculate(
             m_encoder.getDistance(), Units.degreesToRadians(m_armSetpointDegrees));
+    m_motor.setVoltage(pidOutput);
+  }
+
+  public void goToSetpoint(double setpoint) {
+    var pidOutput =
+        m_controller.calculate(
+            m_encoder.getDistance(), Units.degreesToRadians(setpoint));
     m_motor.setVoltage(pidOutput);
   }
 

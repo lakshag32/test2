@@ -5,7 +5,7 @@
 package frc.robot;
 
 import frc.robot.commands.Autos;
-import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.MoveWrist;
 import frc.robot.controls.joystick;
 import frc.robot.subsystems.WristSubsystem;
 

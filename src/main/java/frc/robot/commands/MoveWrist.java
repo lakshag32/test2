@@ -8,19 +8,21 @@ import frc.robot.subsystems.WristSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class ExampleCommand extends CommandBase {
+public class MoveWrist extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final WristSubsystem m_subsystem;
+  private final WristSubsystem m_wrist;
+  private final double m_setpoint; 
 
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ExampleCommand(WristSubsystem subsystem) {
-    m_subsystem = subsystem;
+  public MoveWrist(WristSubsystem wrist, double setpoint) {
+    m_wrist = wrist;
+    m_setpoint = setpoint; 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
+    addRequirements(wrist);
   }
 
   // Called when the command is initially scheduled.
@@ -29,7 +31,9 @@ public class ExampleCommand extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    m_wrist.goToSetpoint(m_setpoint);
+  }
 
   // Called once the command ends or is interrupted.
   @Override
