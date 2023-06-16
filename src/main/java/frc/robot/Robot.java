@@ -19,7 +19,6 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
-  private WristSubsystem m_WristSubsystem = new WristSubsystem(); 
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -103,13 +102,12 @@ public class Robot extends TimedRobot {
 
   @Override
   public void close() {
-    m_WristSubsystem.close();
-    super.close();
+    //m_WristSubsystem.close();
   }
 
   @Override
   public void disabledInit() {
     // This just makes sure that our simulation code knows that the motor's off.
-    m_WristSubsystem.stop();
+    //m_WristSubsystem.stop();
   }
 }
