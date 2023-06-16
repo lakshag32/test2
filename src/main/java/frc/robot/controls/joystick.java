@@ -4,19 +4,16 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.subsystems.WristSubsystem;
 
-public class controller {
+public class joystick {
   private Joystick m_joy = new Joystick(0); 
   private WristSubsystem m_wrist; 
-  public controller(WristSubsystem wrist) {
+  public joystick(WristSubsystem wrist) {
     m_wrist = wrist;
   }
   
   public void configureControls() { 
-    if(m_joy.getTrigger()){
+    if(m_joy.getRawButtonPressed(1)){
       new InstantCommand(()-> m_wrist.reachSetpoint()); 
-    }
-    else{
-      ;
     }
   }
   
