@@ -1,5 +1,6 @@
 package frc.robot.controls;
 
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.simulation.JoystickSim;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -22,10 +23,11 @@ public class joystick {
   }
   
   public void configureControls() { 
-    m_button1.onTrue(new MoveWrist(m_wrist, 90)); 
-    m_button2.onTrue(new MoveWrist(m_wrist, 180)); 
-    m_button3.onTrue(new MoveWrist(m_wrist, 270)); 
-    m_button4.onTrue(new MoveWrist(m_wrist, 360)); 
+    m_button1.onTrue(new MoveWrist(m_wrist, Units.degreesToRadians(90))); 
+    m_button2.onTrue(new MoveWrist(m_wrist, Units.degreesToRadians(180))); 
+    m_button3.onTrue(new MoveWrist(m_wrist, Units.degreesToRadians(270))); 
+    m_button4.onTrue(new MoveWrist(m_wrist, Units.degreesToRadians(360))); 
+
 
 
   }

@@ -36,8 +36,6 @@ public final class Constants {
   //public static final int kPeakCurrentLimit = 50;
   //public static final double kPeakCurrentDuration = 0.5;
 
-  public static final int kArmEncoderDistPerPulse = 2048; 
-
   // public static final double kP = 2;
   // public static final double kI = 0;
   // public static final double kD = 0.07;
@@ -85,6 +83,7 @@ public final class Constants {
   //SIM
   // to know how much the arm will move with a certain power, the sim needs to know the motor, gear ratio, MOI, and length
   public static final DCMotor kGearBox = DCMotor.getFalcon500(1);
+  public static final double kArmEncoderDistPerPulse = 2.0 * Math.PI / 4096;
 
   public static final double kGearRatio = (20.0/1.0) * (62.0/34.0) * (48.0/18.0);
   
